@@ -4,7 +4,7 @@ public class text {
     public static void main(String[] args) {
         
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите текст: ");             //Ввод текста
+        System.out.println("Введите строку: ");             //Ввод текста
         String text = scanner.nextLine();
         
 
@@ -171,7 +171,7 @@ public class text {
             int lenght = x1.length();
             int d = lenght / num;
 
-            result = x1.substring(0, d);
+            var result = x1.substring(0, d);
             
             System.out.println("\"" + result + "\"");
 
