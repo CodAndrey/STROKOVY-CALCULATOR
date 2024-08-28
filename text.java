@@ -168,7 +168,7 @@ public class text {
             String x1 = x.replaceAll("\"","");
             int num = Integer.parseInt(y);
             proverka3(num);
-            int lenght = x1.length() - 1;
+            int lenght = x1.length();
             int d = lenght / num;
 
             result = x1.substring(0, d);
