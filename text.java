@@ -1,28 +1,21 @@
 import java.util.Scanner;
-
 public class text {
     public static void main(String[] args) {
         
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите строку: ");             //Ввод текста
         String text = scanner.nextLine();
-        
-
-        
-       String znak = " \\+ | \\- | \\* | \\/ ";          //Разделение строки на два значения
+        String znak = " \\+ | \\- | \\* | \\/ ";          //Разделение строки на два значения
         String[] parts = text.split(znak);
 
         String par1 = parts[0];
         String par2 = parts[1];
 
         proverka(par1);
-      
 
-            
         boolean plus = text.contains("+");    // Определение знака операции
         boolean minus = text.contains("-");
         boolean umn = text.contains("*");
-        boolean razdel = text.contains("/");   
 
         if (plus) {
             sum(par1,par2);
@@ -36,14 +29,13 @@ public class text {
             else {
                 razdel(par1,par2);
             }
-
     }
 
 
         static void proverka(String x){
          
         boolean start = x.startsWith("\""); // Проверка кавычек в первом значении
-            boolean end = x.endsWith("\"");    
+            boolean end = x.endsWith("\"");
         
             if (start && end){
                 
@@ -61,9 +53,7 @@ public class text {
                 
                 throw new ArithmeticException("ошибка");
             }
-
-
-    }
+        }
 
 
         static void proverka2(String x){
@@ -74,12 +64,11 @@ public class text {
             if (start && end){
                 
                     throw new ArithmeticException("ошибка");
-                    }
+            }
                     else{
                         return;
                     }
-                
-            }
+        }
             
 
 
@@ -98,57 +87,43 @@ public class text {
         static void proverkaRezult (String x){
 
             int lenght = x.length(); //Определение длины строки
-
             if (lenght > 40){
                     
                     String rez = x.substring(0,40);
                     
                     String rezult = rez + "...";
                     System.out.println("\"" + rezult + "\"");
-                    }
+            }
                     else{
                         System.out.println("\"" + x + "\"");
                     }
-
-
         }
 
-
-
-
-
-
-       static void sum(String x, String y){
+        static void sum(String x, String y){
         proverka(y);
-       String x1 = x.replaceAll("\"","");
-       String y1 = y.replaceAll("\"","");  
+        String x1 = x.replaceAll("\"","");
+        String y1 = y.replaceAll("\"","");
         String z = x1 + y1;
         System.out.println("\"" + z + "\"");
         }
-
 
         static void minus(String x, String y){
             proverka(y);
             String x1 = x.replaceAll("\"","");
             String y1 = y.replaceAll("\"","");
-            
-            int index1 = x1.indexOf(y1); 
-            
-            if (index1 > 0){
-            int start = 0;
-            int end = index1;
-            char[] dst=new char[end - start];
-            x1.getChars(start, end, dst, 0);
-            System.out.println(dst); }
-
+            int index1 = x1.indexOf(y1);
+            if (index1 > 0) {
+                int lenghty = y1.length();
+                int longs = index1 + lenghty;
+                StringBuffer strBuffer = new StringBuffer(x1);
+                strBuffer.delete(index1, longs);
+                String rezult = strBuffer.toString();
+                System.out.println("\"" + rezult + "\"");
+            }
             else{
                 System.out.println(x);
             }
-
         }
-            
-        
-
 
         static void umn(String x, String y){
             proverka2(y);
@@ -157,11 +132,7 @@ public class text {
             proverka3(num);
             var repeated = x1.repeat(num);
             proverkaRezult(repeated);
-            
-             
-
         }
-        
 
         static void razdel(String x, String y){
             proverka2(y);
@@ -170,11 +141,8 @@ public class text {
             proverka3(num);
             int lenght = x1.length();
             int d = lenght / num;
-
             var result = x1.substring(0, d);
-            
             System.out.println("\"" + result + "\"");
-
         }
 
 }
