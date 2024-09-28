@@ -112,19 +112,18 @@ public class text {
             String x1 = x.replaceAll("\"","");
             String y1 = y.replaceAll("\"","");
             int index1 = x1.indexOf(y1);
-            if (index1 > 0) {
+            if (index1 >= 0) {
                 int lenghty = y1.length();
                 int longs = index1 + lenghty;
                 StringBuffer strBuffer = new StringBuffer(x1);
                 strBuffer.delete(index1, longs);
                 String rezult = strBuffer.toString();
-                System.out.println("\"" + rezult + "\"");
+                System.out.println("\"" + rezult.trim() + "\"");
             }
             else{
                 System.out.println(x);
             }
         }
-
         static void umn(String x, String y){
             proverka2(y);
             String x1 = x.replaceAll("\"","");
